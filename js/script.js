@@ -1,5 +1,7 @@
 let passwordField = document.querySelector("#password-field");
 let generatePasswordBtn = document.querySelector("#generate-password-btn");
+let quantityInput = document.querySelector("#quantity-input");
+let checkedCheckbox = document.querySelector("#checked-checkbox");
 
 // Generate Password
 var generatePassword = (
@@ -12,7 +14,13 @@ var generatePassword = (
 
 // When press on button - generate new password
 generatePasswordBtn.addEventListener("click", () => {
-    passwordField.value = generatePassword();
+    if(checkedCheckbox.checked){
+      let passwordStr = generatePassword(quantityInput.value || 20).replace(/[^a-zA-Z ]/g, "");
+      passwordField.value = passwordStr;
+    }else{
+      passwordField.value = generatePassword(quantityInput.value || 20);
+    }
+
 });
 
 // First generated password on page

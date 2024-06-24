@@ -6,29 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Generate Passwords</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
 
 <body>
     <div class="password">
         <form>
-            <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-            <div class="relative">
-                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <img width="20" height="20" src="https://img.icons8.com/ios/50/000000/gear.png" alt="gear"/>
+            <div class="main-ui">
+                <label for="search"
+                    class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <img width="20" height="20" src="https://img.icons8.com/ios/50/000000/gear.png" alt="gear" />
+                    </div>
+                    <input type="search" id="password-field"
+                        class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Search" required />
+                    <button type="button" id="generate-password-btn"
+                        class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <img width="20" height="20" src="https://img.icons8.com/ios/50/ffffff/gear.png" alt="gear" />
+                    </button>
                 </div>
-                <input type="search" id="password-field"
-                    class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Search" required />
-                <button type="button"
-                    id="generate-password-btn"
-                    class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <img width="20" height="20" src="https://img.icons8.com/ios/50/ffffff/gear.png" alt="gear"/>
-                </button>
+            </div>
+
+            <div class="settings">
+                <div class="setting-length">
+                    <label for="quantity-input"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password length</label>
+                    <div class="relative flex items-center max-w-[8rem]">
+                        <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input"
+                            class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                            <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 1h16" />
+                            </svg>
+                        </button>
+                        <input type="text" id="quantity-input" data-input-counter
+                            aria-describedby="helper-text-explanation"
+                            class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="999" required />
+                        <button type="button" id="increment-button" data-input-counter-increment="quantity-input"
+                            class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                            <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M9 1v16M1 9h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="settings-symbols">
+                    <div class="flex items-center">
+                        <input checked id="checked-checkbox" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checked-checkbox"
+                            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remove Special Symbols</label>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
 
